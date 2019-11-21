@@ -16,7 +16,7 @@ class App extends Component {
   componentDidUpdate = (prevProps, prevState) => {
     let API = `https://samples.openweathermap.org/data/2.5/find?q=${this.state.value}&units=metric&appid=${APIKey}`;
 
-    if (prevState !== this.state.value) {
+    if (prevState.value !== this.state.value) {
       console.log("fetchujemy tutaj");
     }
   };
