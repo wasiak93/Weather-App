@@ -36,8 +36,11 @@ const Result = props => {
       </>
     );
   }
+
   return (
-    <div className="result">{err ? `Nie mamy w bazie ${city}` : content}</div>
+    <div className="result">
+      {err ? `Sorry, we don't have "${city}" in our database` : content}
+    </div>
   );
 };
 

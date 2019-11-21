@@ -31,7 +31,7 @@ class App extends Component {
           if (response.ok) {
             return response;
           }
-          throw Error("Ups, coś poszło nie tak");
+          throw Error("something one wrong");
         })
         .then(response => response.json())
         .then(data => {
