@@ -3,7 +3,6 @@ import React from "react";
 const Result = props => {
   const {
     err,
-    value,
     date,
     temp,
     city,
@@ -18,10 +17,10 @@ const Result = props => {
   let content = null;
 
   if (!err && city) {
-    const sunriseTime = new Date(sunrise * 1000)
+    const sunriseTime = new Date((sunrise + timezone) * 1000)
       .toLocaleTimeString()
       .slice(0, -3);
-    const sunsetTime = new Date(sunset * 1000)
+    const sunsetTime = new Date((sunset + timezone) * 1000)
       .toLocaleTimeString()
       .slice(0, -3);
 
