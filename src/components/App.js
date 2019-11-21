@@ -5,7 +5,8 @@ const APIKey = "7248b12ac937c4fd8e8f8de3412d50f5";
 
 class App extends Component {
   state = {
-    value: ""
+    value: "",
+    temp: ""
   };
 
   handleChangeInput = e => {
@@ -14,10 +15,23 @@ class App extends Component {
     });
   };
   componentDidUpdate = (prevProps, prevState) => {
-    let API = `https://samples.openweathermap.org/data/2.5/find?q=${this.state.value}&units=metric&appid=${APIKey}`;
-
     if (prevState.value !== this.state.value) {
-      console.log("fetchujemy tutaj");
+      const API = `api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
+
+      fetch(API)
+        .then(response => {
+          if (response.ok) {
+            return response;
+          }
+          throw Error("Ups, coś poszło nie tak");
+        })
+        .then(response => response.json())
+        .then(data => {
+          this.setState({
+            temp: data.main.temp
+          });
+        })
+        .catch(err => console.log(err));
     }
   };
 
