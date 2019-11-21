@@ -23,15 +23,15 @@ const Result = props => {
     content = (
       <>
         <h1>
-          <strong>{city}</strong>
+          Wyniki dla: <strong>{city}</strong>
         </h1>
-        <p>{time}</p>
-        <p>{temp}</p>
-        <p>{sunriseTime}</p>
-        <p>{sunsetTime}</p>
-        <p>{wind}</p>
-        <p>{pressure}</p>
-        <p>{humidity}</p>
+        <p>Aktualna data i godzina: {time}</p>
+        <p>Tempertura: {Math.round(temp)} &#176;C</p>
+        <p>Wschód słońca: {sunriseTime}</p>
+        <p>Zachód słońca: {sunsetTime}</p>
+        <p>Prędkośc wiatru {wind} m/s</p>
+        <p>Ciśnienie: {pressure} hPa</p>
+        <p>Wilgotność {humidity} %</p>
         <p></p>
       </>
     );
