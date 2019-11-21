@@ -3,11 +3,20 @@ import Input from "./Input";
 import Result from "./Result.js";
 
 class App extends Component {
-  state = {};
+  state = {
+    value: ""
+  };
+
+  handleChangeInput = e => {
+    this.setState({
+      value: e.target.value
+    });
+  };
+
   render() {
     return (
       <div>
-        <Input />
+        <Input value={this.state.value} change={this.handleChangeInput} />
         <Result />
       </div>
     );
