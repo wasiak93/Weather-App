@@ -14,7 +14,8 @@ class App extends Component {
     sunset: "",
     wind: "",
     pressure: "",
-    humidity: ""
+    humidity: "",
+    timezone: ""
   };
 
   handleChangeInput = e => {
@@ -35,16 +36,19 @@ class App extends Component {
         })
         .then(response => response.json())
         .then(data => {
+          let date = new Date();
+
           this.setState(prevState => ({
             err: false,
             temp: data.main.temp,
             city: prevState.value,
-            date: data.dt,
+            date: date,
             sunrise: data.sys.sunrise,
             sunset: data.sys.sunset,
             wind: data.wind.speed,
             pressure: data.main.pressure,
-            humidity: data.main.humidity
+            humidity: data.main.humidity,
+            timezone: data.timezone
           }));
         })
         .catch(err => {

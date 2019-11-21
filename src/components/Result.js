@@ -11,15 +11,22 @@ const Result = props => {
     sunset,
     wind,
     pressure,
-    humidity
+    humidity,
+    timezone
   } = props.weather;
 
   let content = null;
 
   if (!err && city) {
-    const sunriseTime = new Date(sunrise * 1000).toLocaleTimeString();
-    const sunsetTime = new Date(sunset * 1000).toLocaleTimeString();
-    const time = new Date(date * 1000).toLocaleString().slice(0, -3);
+    const sunriseTime = new Date(sunrise * 1000)
+      .toLocaleTimeString()
+      .slice(0, -3);
+    const sunsetTime = new Date(sunset * 1000)
+      .toLocaleTimeString()
+      .slice(0, -3);
+
+    const timeUTC = date.getTime() + date.getTimezoneOffset() * 60000;
+    const time = new Date(timeUTC + timezone * 1000).toLocaleString();
     content = (
       <>
         <h1>
@@ -32,7 +39,7 @@ const Result = props => {
         <p>Prędkośc wiatru {wind} m/s</p>
         <p>Ciśnienie: {pressure} hPa</p>
         <p>Wilgotność {humidity} %</p>
-        <p></p>
+        <p>{timezone}</p>
       </>
     );
   }
