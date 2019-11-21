@@ -35,14 +35,11 @@ class App extends Component {
         })
         .then(response => response.json())
         .then(data => {
-          console.log(API);
-          const time = new Date().toLocaleString();
-
           this.setState(prevState => ({
             err: false,
             temp: data.main.temp,
             city: prevState.value,
-            date: time,
+            date: data.dt,
             sunrise: data.sys.sunrise,
             sunset: data.sys.sunset,
             wind: data.wind.speed,

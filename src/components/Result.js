@@ -13,22 +13,31 @@ const Result = props => {
     pressure,
     humidity
   } = props.weather;
-  const sunriseTime = new Date(sunrise * 1000).toLocaleTimeString();
-  const sunsetTime = new Date(sunset * 1000).toLocaleTimeString();
+
+  let content = null;
+
+  if (!err && city) {
+    const sunriseTime = new Date(sunrise * 1000).toLocaleTimeString();
+    const sunsetTime = new Date(sunset * 1000).toLocaleTimeString();
+    const time = new Date(date * 1000).toLocaleString().slice(0, -3);
+    content = (
+      <>
+        <h1>
+          <strong>{city}</strong>
+        </h1>
+        <p>{time}</p>
+        <p>{temp}</p>
+        <p>{sunriseTime}</p>
+        <p>{sunsetTime}</p>
+        <p>{wind}</p>
+        <p>{pressure}</p>
+        <p>{humidity}</p>
+        <p></p>
+      </>
+    );
+  }
   return (
-    <>
-      <h1>
-        <strong>{city}</strong>
-      </h1>
-      <p>{date}</p>
-      <p>{temp}</p>
-      <p>{sunriseTime}</p>
-      <p>{sunsetTime}</p>
-      <p>{wind}</p>
-      <p>{pressure}</p>
-      <p>{humidity}</p>
-      <p></p>
-    </>
+    <div className="result">{err ? `Nie mamy w bazie ${city}` : content}</div>
   );
 };
 
