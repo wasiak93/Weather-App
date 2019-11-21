@@ -5,8 +5,16 @@ const APIKey = "7248b12ac937c4fd8e8f8de3412d50f5";
 
 class App extends Component {
   state = {
+    err: false,
     value: "",
-    temp: ""
+    date: "",
+    temp: "",
+    city: "",
+    sunrise: "",
+    sunset: "",
+    wind: "",
+    pressure: "",
+    humidity: ""
   };
 
   handleChangeInput = e => {
@@ -27,12 +35,27 @@ class App extends Component {
         })
         .then(response => response.json())
         .then(data => {
-          console.log(data);
-          this.setState({
-            temp: data.main.temp
-          });
+          console.log(API);
+          const time = new Date().toLocaleString();
+
+          this.setState(prevState => ({
+            err: false,
+            temp: data.main.temp,
+            city: prevState.value,
+            date: time,
+            sunrise: data.sys.sunrise,
+            sunset: data.sys.sunset,
+            wind: data.wind.speed,
+            pressure: data.main.pressure,
+            humidity: data.main.humidity
+          }));
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+          this.setState(prevState => ({
+            err: true,
+            city: prevState.value
+          }));
+        });
     }
   };
 
@@ -40,7 +63,7 @@ class App extends Component {
     return (
       <div>
         <Input value={this.state.value} change={this.handleChangeInput} />
-        <Result />
+        <Result weather={this.state} />
       </div>
     );
   }
