@@ -24,6 +24,7 @@ class App extends Component {
     });
   };
   componentDidUpdate = (prevProps, prevState) => {
+    if (this.state.value.length === 0) return;
     if (prevState.value !== this.state.value) {
       const API = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
 
@@ -36,7 +37,7 @@ class App extends Component {
         })
         .then(response => response.json())
         .then(data => {
-          let date = new Date();
+          const date = new Date();
 
           this.setState(prevState => ({
             err: false,
