@@ -1,4 +1,16 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCity,
+  faPercent,
+  faClock,
+  faTemperatureLow,
+  faSun,
+  faArrowUp,
+  faArrowDown,
+  faWind,
+  faHeart
+} from "@fortawesome/free-solid-svg-icons";
 
 const Result = props => {
   const {
@@ -24,22 +36,41 @@ const Result = props => {
       .toLocaleTimeString()
       .slice(0, -3);
 
-    const timeUTC = date.getTime() + date.getTimezoneOffset() * 60000;
-    const time = new Date(timeUTC + timezone * 1000).toLocaleString();
+    const timeUTC =
+      date.getTime() + date.getTimezoneOffset() * 60000 + timezone * 1000;
+    const time = new Date(timeUTC).toLocaleString();
     content = (
-      <>
+      <div className="date">
         <h1>
-          Wyniki dla: <strong>{city}</strong>
+          <FontAwesomeIcon icon={faCity} /> <strong>{city}</strong>
         </h1>
-        <p>Aktualna data i godzina: {time}</p>
-        <p>Tempertura: {Math.round(temp)} &#176;C</p>
-        <p>Wschód słońca: {sunriseTime}</p>
-        <p>Zachód słońca: {sunsetTime}</p>
-        <p>Prędkośc wiatru {wind} m/s</p>
-        <p>Ciśnienie: {pressure} hPa</p>
-        <p>Wilgotność {humidity} %</p>
-        <p>{timezone}</p>
-      </>
+        <p>
+          <FontAwesomeIcon icon={faClock} /> {time}
+          {time}
+        </p>
+        <p>
+          <FontAwesomeIcon icon={faTemperatureLow} /> {Math.round(temp)} &#176;C
+        </p>
+        <p>
+          <FontAwesomeIcon icon={faSun} />
+          <FontAwesomeIcon icon={faArrowUp} />
+          {sunriseTime}
+        </p>
+        <p>
+          <FontAwesomeIcon icon={faSun} />
+          <FontAwesomeIcon icon={faArrowDown} />
+          {sunsetTime}
+        </p>
+        <p>
+          <FontAwesomeIcon icon={faWind} /> {wind} m/s
+        </p>
+        <p>
+          <FontAwesomeIcon icon={faHeart} /> {pressure} hPa
+        </p>
+        <p>
+          <FontAwesomeIcon icon={faPercent} /> {humidity} %
+        </p>
+      </div>
     );
   }
 

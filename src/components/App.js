@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./App.css";
 import Input from "./Input";
 import Result from "./Result.js";
 const APIKey = "7248b12ac937c4fd8e8f8de3412d50f5";
@@ -22,7 +23,14 @@ class App extends Component {
     this.setState({
       value: e.target.value
     });
+    console.log("dziala");
   };
+  componentDidMount() {
+    console.log("didMount");
+    this.setState({
+      value: "Warszawa"
+    });
+  }
   componentDidUpdate = (prevProps, prevState) => {
     if (this.state.value.length === 0) return;
     if (prevState.value !== this.state.value) {
@@ -63,7 +71,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="main">
         <Input value={this.state.value} change={this.handleChangeInput} />
         <Result weather={this.state} />
       </div>
