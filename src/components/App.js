@@ -23,10 +23,8 @@ class App extends Component {
     this.setState({
       value: e.target.value
     });
-    console.log("dziala");
   };
   componentDidMount() {
-    console.log("didMount");
     this.setState({
       value: "Warszawa"
     });

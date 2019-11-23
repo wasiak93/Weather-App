@@ -4,6 +4,32 @@
   box-sizing: border-box;
 }
 
-div.main {
-  background-color: grey;
+html {
+  font-family: arial;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+.form {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 250px;
+  font-size: 25px;
+  margin: 60px auto 20px;
+  padding: 5px 5px;
+  background: skyblue;
+  border: solid black 2px;
+  outline: none;
+}
+
+.date {
+  background: skyblue
 }
