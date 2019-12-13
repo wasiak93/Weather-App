@@ -39,7 +39,7 @@ class App extends Component {
           if (response.ok) {
             return response;
           }
-          throw Error("something one wrong");
+          throw Error("something gone wrong");
         })
         .then(response => response.json())
         .then(data => {
