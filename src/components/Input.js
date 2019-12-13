@@ -4,6 +4,7 @@ const Input = props => {
   return (
     <div className="form">
       <input
+        className="form__input"
         type="text"
         placeholder="wpisz miasto"
         value={props.value}

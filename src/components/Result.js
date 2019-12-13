@@ -40,42 +40,47 @@ const Result = props => {
       date.getTime() + date.getTimezoneOffset() * 60000 + timezone * 1000;
     const time = new Date(timeUTC).toLocaleString();
     content = (
-      <div className="date">
-        <h1>
-          <FontAwesomeIcon icon={faCity} /> <strong>{city}</strong>
+      <div>
+        <h1 className="date__city">
+          {/* <FontAwesomeIcon icon={faCity} /> <strong>{city}</strong> */}
+          {city}
         </h1>
-        <p>
-          <FontAwesomeIcon icon={faClock} /> {time}
+        <p className="date__time">
+          {/* <FontAwesomeIcon icon={faClock} />  */}
           {time}
         </p>
-        <p>
-          <FontAwesomeIcon icon={faTemperatureLow} /> {Math.round(temp)} &#176;C
-        </p>
-        <p>
-          <FontAwesomeIcon icon={faSun} />
-          <FontAwesomeIcon icon={faArrowUp} />
-          {sunriseTime}
-        </p>
-        <p>
-          <FontAwesomeIcon icon={faSun} />
-          <FontAwesomeIcon icon={faArrowDown} />
-          {sunsetTime}
-        </p>
-        <p>
-          <FontAwesomeIcon icon={faWind} /> {wind} m/s
-        </p>
-        <p>
-          <FontAwesomeIcon icon={faHeart} /> {pressure} hPa
-        </p>
-        <p>
-          <FontAwesomeIcon icon={faPercent} /> {humidity} %
-        </p>
+        <div className="date__temp">
+          {/* <FontAwesomeIcon icon={faTemperatureLow} /> */}
+          <p className="date__degree">{Math.round(temp)}</p>
+          <p className="date__symbol">&#176;C</p>
+        </div>
+        <div className="items">
+          {/* <div className="items__item">
+            <FontAwesomeIcon icon={faSun} />
+            <FontAwesomeIcon icon={faArrowUp} />
+            {sunriseTime}
+          </div>
+          <div className="items__item">
+            <FontAwesomeIcon icon={faSun} />
+            <FontAwesomeIcon icon={faArrowDown} />
+            {sunsetTime}
+          </div> */}
+          <div className="items__item">
+            <FontAwesomeIcon icon={faWind} /> {wind} m/s
+          </div>
+          <div className="items__item">
+            <FontAwesomeIcon icon={faHeart} /> {pressure} hPa
+          </div>
+          <div className="items__item">
+            <FontAwesomeIcon icon={faPercent} /> {humidity} %
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="result">
+    <div className="date">
       {err ? `Sorry, we don't have "${city}" in our database` : content}
     </div>
   );
