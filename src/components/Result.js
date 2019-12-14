@@ -1,13 +1,13 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCity,
+  // faCity,
   faPercent,
-  faClock,
-  faTemperatureLow,
-  faSun,
-  faArrowUp,
-  faArrowDown,
+  // faClock,
+  // faTemperatureLow
+  // faSun,
+  // faArrowUp,
+  // faArrowDown,
   faWind,
   faHeart
 } from "@fortawesome/free-solid-svg-icons";
@@ -18,8 +18,8 @@ const Result = props => {
     date,
     temp,
     city,
-    sunrise,
-    sunset,
+    // sunrise,
+    // sunset,
     wind,
     pressure,
     humidity,
@@ -29,16 +29,24 @@ const Result = props => {
   let content = null;
 
   if (!err && city) {
-    const sunriseTime = new Date((sunrise + timezone) * 1000)
-      .toLocaleTimeString()
-      .slice(0, -3);
-    const sunsetTime = new Date((sunset + timezone) * 1000)
-      .toLocaleTimeString()
-      .slice(0, -3);
+    // const sunriseTime = new Date((sunrise + timezone) * 1000)
+    //   .toLocaleTimeString()
+    //   .slice(0, -3);
+    // const sunsetTime = new Date((sunset + timezone) * 1000)
+    //   .toLocaleTimeString()
+    //   .slice(0, -3);
 
     const timeUTC =
       date.getTime() + date.getTimezoneOffset() * 60000 + timezone * 1000;
-    const time = new Date(timeUTC).toLocaleString();
+    const hours = new Date(timeUTC)
+      .getHours()
+      .toString()
+      .padStart(2, 0);
+    const minutes = new Date(timeUTC)
+      .getMinutes()
+      .toString()
+      .padStart(2, 0);
+    const time = hours + ":" + minutes;
     content = (
       <div>
         <h1 className="date__city">

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import "../styles/App.css";
 import Input from "./Input";
 import Result from "./Result.js";
 const APIKey = "7248b12ac937c4fd8e8f8de3412d50f5";
