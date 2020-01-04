@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "../styles/App.css";
-import Input from "./Input";
-import Result from "./Result.js";
+import "./App.css";
+import Input from "./Input/Input";
+import Result from "./Result/Result.js";
 const APIKey = "7248b12ac937c4fd8e8f8de3412d50f5";
 
 class App extends Component {

@@ -1,11 +1,10 @@
 import React from "react";
-import "../styles/Input.css";
+import styles from "./Input.module.scss";
 
 const Input = props => {
   return (
-    <div className="form">
+    <div className={styles.wrapper}>
       <input
-        className="form__input"
         type="text"
         placeholder="wpisz miasto"
         value={props.value}
