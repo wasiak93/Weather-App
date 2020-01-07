@@ -11,6 +11,7 @@ import {
   faWind,
   faHeart
 } from "@fortawesome/free-solid-svg-icons";
+import styles from "./Result.module.scss";
 
 const Result = props => {
   const {
@@ -40,23 +41,23 @@ const Result = props => {
     const time = hours + ":" + minutes;
 
     content = (
-      <div>
-        <h1 className="date__city">{city}</h1>
-        <p className="date__time">{time}</p>
+      <div className={styles.wrapper}>
+        <h1> {city}</h1>
+        <p className={styles.time}>{time}</p>
 
-        <p className="date__degree">{Math.round(temp)} &#176;C</p>
+        <p className={styles.degree}>{Math.round(temp)} &#176;C</p>
 
-        <div className="items">
-          <div className="items__item">
-            <FontAwesomeIcon icon={faWind} />
+        <div className={styles.itemsWrapper}>
+          <div className={styles.item}>
+            <FontAwesomeIcon icon={faWind} className={styles.icon} />
             <p>{wind} m/s</p>
           </div>
-          <div className="items__item">
-            <FontAwesomeIcon icon={faHeart} />
+          <div className={styles.item}>
+            <FontAwesomeIcon icon={faHeart} className={styles.icon} />
             <p>{pressure} hPa</p>
           </div>
-          <div className="items__item">
-            <FontAwesomeIcon icon={faPercent} />
+          <div className={styles.item}>
+            <FontAwesomeIcon icon={faPercent} className={styles.icon} />
             <p>{humidity} %</p>
           </div>
         </div>
