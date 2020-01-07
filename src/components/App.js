@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import styles from "./App.module.scss";
 import Input from "./Input/Input";
 import Result from "./Result/Result.js";
 const APIKey = "7248b12ac937c4fd8e8f8de3412d50f5";
@@ -69,7 +69,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="main">
+      <div className={styles.wrapper}>
         <Input value={this.state.value} change={this.handleChangeInput} />
         <Result weather={this.state} />
       </div>

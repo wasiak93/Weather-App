@@ -39,7 +39,7 @@ const Result = props => {
   }
 
   return (
-    <div className="date">
+    <div className={styles.wrapper}>
       {err ? `Sorry, we don't have "${city}" in our database` : content}
     </div>
   );

@@ -12,3 +12,10 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 22px;
 }
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 130px 1fr;
+  height: 100vh;
+  background: linear-gradient(#e66465, #9198e5);
+}
