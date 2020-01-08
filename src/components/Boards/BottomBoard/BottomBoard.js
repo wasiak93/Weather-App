@@ -4,7 +4,7 @@ import Item from "./Item/Item";
 import styles from "./BottomBoard.module.scss";
 
 const BottomBoard = ({ wind, pressure, humidity }) => (
-  <div className={styles.itemsWrapper}>
+  <div className={styles.wrapper}>
     <Item iconName={faWind}>{wind} m/s</Item>
     <Item iconName={faHeart}>{pressure} hPa</Item>
     <Item iconName={faPercent}>{humidity} %</Item>
