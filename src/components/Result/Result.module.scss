@@ -1,0 +1,15 @@
+.wrapper {
+  display: grid;
+  grid-template-rows: 1fr 20vh;
+  text-align: center;
+
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: white;
+    // top: 130px;
+    position: absolute;
+  }
+}

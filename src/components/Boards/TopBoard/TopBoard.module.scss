@@ -1,0 +1,37 @@
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+  // border: 2px solid black;
+  color: rgba(#fff, .5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+
+    font-weight: 700;
+    margin-bottom: 0px;
+    font-size: 24px;
+  }
+
+  .time {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+
+  .degree {
+    font-size: 60px;
+    margin: 0 auto;
+
+
+    span {
+      font-size: 160px;
+      line-height: 180px;
+      color: rgba(#fff, .75);
+      display: block;
+      font-weight: 700;
+    }
+  }
+
+}
