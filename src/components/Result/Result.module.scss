@@ -6,10 +6,10 @@
 
   &::before {
     content: "";
-    width: 100%;
+    width: 100vw;
     height: 2px;
     background: rgba(#fff, 0.5);
-    // top: 130px;
     position: absolute;
+    left: 0;
   }
 }
