@@ -11,8 +11,6 @@ class App extends Component {
     date: "",
     temp: "",
     city: "",
-    // sunrise: "",
-    // sunset: "",
     wind: "",
     pressure: "",
     humidity: "",
@@ -24,11 +22,7 @@ class App extends Component {
       value: e.target.value
     });
   };
-  componentDidMount() {
-    this.setState({
-      value: "Warszawa"
-    });
-  }
+
   componentDidUpdate = (prevProps, prevState) => {
     if (this.state.value.length === 0) return;
     if (prevState.value !== this.state.value) {
@@ -50,8 +44,6 @@ class App extends Component {
             temp: data.main.temp,
             city: prevState.value,
             date: date,
-            // sunrise: data.sys.sunrise,
-            // sunset: data.sys.sunset,
             wind: data.wind.speed,
             pressure: data.main.pressure,
             humidity: data.main.humidity,
