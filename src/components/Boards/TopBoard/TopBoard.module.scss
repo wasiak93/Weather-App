@@ -1,7 +1,6 @@
 .wrapper {
   width: 90%;
   margin: 0 auto;
-  // border: 2px solid black;
   color: rgba(#fff, .5);
   display: flex;
   flex-direction: column;
@@ -12,22 +11,22 @@
 
     font-weight: 700;
     margin-bottom: 0px;
-    font-size: 24px;
+    font-size: 1.2em;
   }
 
   .time {
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 1em
   }
 
   .degree {
-    font-size: 60px;
+    font-size: 2.9em;
     margin: 0 auto;
 
 
     span {
-      font-size: 160px;
-      line-height: 180px;
+      font-size: 2.25em;
+      line-height: 110%;
       color: rgba(#fff, .75);
       display: block;
       font-weight: 700;

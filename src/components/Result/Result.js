@@ -17,7 +17,6 @@ const Result = props => {
   } = props.weather;
 
   let content = null;
-
   if (!err && city) {
     const timeUTC =
       date.getTime() + date.getTimezoneOffset() * 60000 + timezone * 1000;
@@ -39,7 +38,15 @@ const Result = props => {
   }
 
   return (
-    <>{err ? `Sorry, we don't have "${city}" in our database` : content}</>
+    <>
+      {err ? (
+        <p className={styles.noCity}>
+          Sorry, we don't have "{city}" in our database
+        </p>
+      ) : (
+        content
+      )}
+    </>
   );
 };
 
