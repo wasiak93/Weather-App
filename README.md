@@ -2,4 +2,4 @@
 
 Mobile:
 
-![src/assets/screen/view.jpg](src/assets/screen/view.jpg)
+![src/assets/screen/view.png](src/assets/screen/view.png)
