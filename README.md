@@ -6,4 +6,4 @@ View:
 
 Title bar with logo:
 
-![src/assets/screen/bar.png](src/assets/screen/barpng)
+![src/assets/screen/bar.png](src/assets/screen/bar.png)
